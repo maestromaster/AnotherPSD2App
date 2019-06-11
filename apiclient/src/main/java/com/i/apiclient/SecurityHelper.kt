@@ -1,8 +1,7 @@
-package com.i.security
+package com.i.apiclient
 
 import android.content.res.AssetManager
 import android.util.Base64
-import java.io.InputStream
 import java.nio.charset.StandardCharsets
 import java.security.*
 import java.security.spec.PKCS8EncodedKeySpec

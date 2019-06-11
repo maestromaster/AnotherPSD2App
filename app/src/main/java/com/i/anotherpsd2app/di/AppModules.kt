@@ -3,9 +3,9 @@ package com.i.anotherpsd2app.di
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.AssetManager
-import com.i.security.SecurityHelper
-import com.i.security.datasource.AccountDatasource
-import com.i.security.datasource.OauthDatasource
+import com.i.apiclient.SecurityHelper
+import com.i.apiclient.datasource.MockDatasource
+import com.i.apiclient.datasource.OauthDatasource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -27,7 +27,7 @@ val appModules : Module = module {
 
     single { createOkHttpClient(securityHelper = get()) }
 
-    single { createWebService<AccountDatasource>(get(), MOCK_URL) }
+    single { createWebService<MockDatasource>(get(), MOCK_URL) }
 
     single { createWebService<OauthDatasource>(get(), SANDBOX_URL) }
 
@@ -39,7 +39,7 @@ fun createOkHttpClient(securityHelper: SecurityHelper): OkHttpClient {
     // TODO: Set client certificate to okHttp
 
     val httpLoggingInterceptor = HttpLoggingInterceptor()
-    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
     return OkHttpClient.Builder()
         .connectTimeout(10L, TimeUnit.SECONDS)
         .readTimeout(10L, TimeUnit.SECONDS)

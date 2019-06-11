@@ -1,6 +1,6 @@
 package com.i.homefeature.presentation
 
-import com.i.security.model.accountInformation.BalancesInformation
+import com.i.apiclient.model.accountInformation.BalancesInformation
 
 interface HomeView {
     fun showProgress()

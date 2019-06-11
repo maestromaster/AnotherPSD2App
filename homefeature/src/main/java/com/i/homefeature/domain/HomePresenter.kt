@@ -5,8 +5,8 @@ import com.i.errormanager.FeatureError
 import com.i.errormanager.FeatureError.AUTHENTICATION_ERROR
 import com.i.feature.RepositoryCallback
 import com.i.homefeature.presentation.HomeView
-import com.i.security.model.accountInformation.BalancesInformation
-import com.i.security.model.UserData
+import com.i.apiclient.model.accountInformation.BalancesInformation
+import com.i.apiclient.model.UserData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.disposables.Disposable

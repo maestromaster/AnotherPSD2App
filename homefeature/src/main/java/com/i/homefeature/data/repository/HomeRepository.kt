@@ -1,9 +1,9 @@
 package com.i.homefeature.data.repository
 
 import com.i.homefeature.domain.HomeRepositoryContract
-import com.i.security.model.UserData
-import com.i.security.model.accountInformation.BalancesInformation
-import com.i.security.service.AccountInformationServiceContract
+import com.i.apiclient.model.UserData
+import com.i.apiclient.model.accountInformation.BalancesInformation
+import com.i.apiclient.service.AccountInformationServiceContract
 import io.reactivex.Observable
 import retrofit2.Response
 

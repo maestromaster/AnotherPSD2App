@@ -1,4 +1,4 @@
-package com.i.security.model
+package com.i.apiclient.model
 
 class AuthenticationData(
     val digest: String? = null,

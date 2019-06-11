@@ -1,7 +1,7 @@
-package com.i.security.service
+package com.i.apiclient.service
 
-import com.i.security.model.AuthenticationData
-import com.i.security.model.oauth.OauthData
+import com.i.apiclient.model.AuthenticationData
+import com.i.apiclient.model.oauth.OauthData
 import io.reactivex.Observable
 import retrofit2.Response
 

@@ -1,33 +1,19 @@
 package com.i.loginfeature.domain
 
-import android.content.res.AssetManager
-import com.i.security.model.AuthenticationData
-import com.i.security.model.UserData
-import com.i.loginfeature.presentation.LoginView
 import com.i.errormanager.FeatureError
 import com.i.errormanager.FeatureError.*
-import com.i.feature.FeaturePresenterContract
-import com.i.feature.FeatureRepositoryContract
-import com.i.feature.RepositoryCallback
 import com.i.loginfeature.data.repository.LoginRepositoryContract
-import com.i.security.SecurityHelper
-import com.i.security.model.oauth.OauthData
+import com.i.loginfeature.presentation.LoginView
+import com.i.apiclient.SecurityHelper
+import com.i.apiclient.model.AuthenticationData
+import com.i.apiclient.model.oauth.OauthData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import okhttp3.internal.http.HttpMethod
-import org.koin.core.parameter.parametersOf
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import retrofit2.HttpException
-import java.security.KeyStore
-import java.time.ZoneOffset
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
-import javax.net.ssl.KeyManagerFactory
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManagerFactory
 
 class LoginPresenter(var loginView: LoginView?) :
     LoginPresenterContract, KoinComponent {
@@ -63,12 +49,27 @@ class LoginPresenter(var loginView: LoginView?) :
             }, {error ->
                 if (error is HttpException) {
                     onError(HTTP_ERROR)
+                } else {
+                    onError(NO_NETWORK)
                 }
             })
     }
 
     override fun fetch(data: AuthenticationData) {
-
+        disposable = loginRepository.loadFromNetwork(data)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response ->
+                response.body()?.let { oAuthData ->
+                    onSuccess(oAuthData)
+                } ?: run { onError(EMPTY_BODY) }
+            }, {error ->
+                if (error is HttpException) {
+                    onError(HTTP_ERROR)
+                } else {
+                    onError(NO_NETWORK)
+                }
+            })
     }
 
     override fun destroy() {

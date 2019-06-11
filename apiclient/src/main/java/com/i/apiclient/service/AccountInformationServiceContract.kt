@@ -1,7 +1,7 @@
-package com.i.security.service
+package com.i.apiclient.service
 
-import com.i.security.model.UserData
-import com.i.security.model.accountInformation.BalancesInformation
+import com.i.apiclient.model.UserData
+import com.i.apiclient.model.accountInformation.BalancesInformation
 import io.reactivex.Observable
 import retrofit2.Response
 

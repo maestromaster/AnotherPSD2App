@@ -6,8 +6,8 @@ import android.view.View.GONE
 import androidx.appcompat.app.AppCompatActivity
 import com.i.homefeature.R
 import com.i.homefeature.domain.HomePresenterContract
-import com.i.security.model.accountInformation.BalancesInformation
-import com.i.security.model.UserData
+import com.i.apiclient.model.accountInformation.BalancesInformation
+import com.i.apiclient.model.UserData
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf

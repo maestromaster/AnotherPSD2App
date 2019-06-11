@@ -1,4 +1,4 @@
-package com.i.security.model.oauth
+package com.i.apiclient.model.oauth
 
 data class Key(
     val kty: String,

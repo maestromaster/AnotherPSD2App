@@ -6,11 +6,9 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.View.INVISIBLE
 import androidx.appcompat.app.AppCompatActivity
-import com.i.feature.FeaturePresenterContract
 import com.i.homefeature.presentation.HomeActivity
 import com.i.loginfeature.R
 import com.i.loginfeature.domain.LoginPresenterContract
-import com.i.security.model.AuthenticationData
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -27,7 +25,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     private fun initiateLogin(){
-        presenter.fetch(AuthenticationData())
+        presenter.authenticate()
     }
 
     override fun onDestroy() {

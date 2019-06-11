@@ -51,3 +51,9 @@ fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()
  */
 inline fun <reified T : Any> argumentCaptor(): ArgumentCaptor<T> =
     ArgumentCaptor.forClass(T::class.java)
+
+/**
+ * Helper function for creating a mock in kotlin.
+ * */
+inline fun <reified T : Any> mock() =
+    Mockito.mock(T::class.java)
