@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    // Modules
+    implementation project(':feature')
+    implementation project(':error')
+    implementation project(':apiclient')
+
+    // Android
+    implementation androidLibs.appcompat
+    implementation androidLibs.constraintlayout
+    implementation androidLibs.cardView
+
+    // Testing
+    testImplementation testing.junit
+    androidTestImplementation testing.runner
+    androidTestImplementation testing.espresso
+
+    // Kotlin
+    implementation kotlinLibs.stdlib
+    implementation kotlinLibs.ktx
+
+    // DI
+    implementation koin.koin
+    testImplementation koin.koinTest
+
+    // HTTP
+    implementation networking.okhttp
+    implementation networking.retrofit
+
+    //RX
+    implementation rx.rxJava
+}

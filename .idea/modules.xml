@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnotherPSD2App.iml" filepath="$PROJECT_DIR$/AnotherPSD2App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiclient/apiclient.iml" filepath="$PROJECT_DIR$/apiclient/apiclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/error/error.iml" filepath="$PROJECT_DIR$/error/error.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature/feature.iml" filepath="$PROJECT_DIR$/feature/feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homefeature/homefeature.iml" filepath="$PROJECT_DIR$/homefeature/homefeature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginfeature/loginfeature.iml" filepath="$PROJECT_DIR$/loginfeature/loginfeature.iml" />
+    </modules>
+  </component>
+</project>

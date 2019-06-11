@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion sdkVersion
+    defaultConfig {
+        applicationId "com.i.anotherpsd2app"
+        minSdkVersion sdkVersionMin
+        targetSdkVersion sdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Modules
+    implementation project(':feature')
+    implementation project(':error')
+    implementation project(':apiclient')
+    implementation project(':loginfeature')
+    implementation project(':homefeature')
+
+    // Android
+    implementation androidLibs.appcompat
+    implementation androidLibs.constraintlayout
+
+    // Testing
+    testImplementation testing.junit
+    androidTestImplementation testing.runner
+    androidTestImplementation testing.espresso
+
+    // Kotlin
+    implementation kotlinLibs.stdlib
+    implementation kotlinLibs.ktx
+
+    // DI
+    implementation koin.koin
+    testImplementation koin.koinTest
+
+    // HTTP
+    implementation networking.okhttp
+    implementation networking.okhttpLoggingInterceptor
+    implementation networking.retrofit
+    implementation networking.retrofitGsonConverter
+    implementation networking.retrofitRxJava
+}

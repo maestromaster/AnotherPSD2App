@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Login Feature</string>
+    <string name="try_again">Try again</string>
+    <string name="error_username_empty">Username wrong</string>
+    <string name="error_username_password">Password wrong</string>
+    <string name="error_no_network">Network error</string>
+    <string name="error_unknown_error">Other error</string>
+</resources>
